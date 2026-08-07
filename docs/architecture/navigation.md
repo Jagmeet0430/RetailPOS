@@ -1,0 +1,50 @@
+# Main Navigation
+
+Version 1 navigation should be:
+
+- POS
+- Dashboard
+- Sales
+  - New Sale
+  - Sales History
+  - Held Sales
+  - Returns
+  - Refunds
+- Products
+  - Products
+  - Categories
+  - Units
+  - Prices
+  - Promotions
+- Inventory
+  - Current Stock
+  - Stock Movements
+  - Inventory Count
+  - Stock Adjustment
+  - Loss / Damage
+  - Low Stock
+- Purchasing
+  - Purchases
+  - New Purchase
+  - Suppliers
+- Customers
+  - Customer List
+  - Customer History
+  - Loyalty
+- Reports
+  - Sales
+  - Products
+  - Inventory
+  - Payments
+  - Taxes
+  - Customers
+  - Cash Register
+- Administration
+  - Users
+  - Roles
+  - Payment Types
+  - Taxes
+  - Company
+  - Receipt
+  - Backup
+  - System Settings
