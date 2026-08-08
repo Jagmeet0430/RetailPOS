@@ -11,6 +11,9 @@ from app.api.routes.products import router as products_router
 from app.api.routes.purchases import (
     router as purchases_router,
 )
+from app.api.routes.sales import (
+    router as sales_router,
+)
 from app.api.routes.stores import (
     router as stores_router,
 )
@@ -63,6 +66,10 @@ api_router.include_router(
 
 api_router.include_router(
     purchases_router
+)
+
+api_router.include_router(
+    sales_router
 )
 
 api_router.include_router(
