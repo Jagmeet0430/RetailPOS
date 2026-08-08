@@ -1,7 +1,7 @@
 from decimal import Decimal
 from uuid import UUID
 
-from sqlalchemy import ForeignKey, Numeric, String
+from sqlalchemy import ForeignKey, Numeric, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, TimestampMixin, UUIDMixin
@@ -9,6 +9,14 @@ from app.models.base import Base, TimestampMixin, UUIDMixin
 
 class Inventory(Base, UUIDMixin, TimestampMixin):
     __tablename__ = "inventory"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "store_id",
+            "product_id",
+            name="uq_inventory_store_product",
+        ),
+    )
 
     store_id: Mapped[UUID] = mapped_column(
         ForeignKey("stores.id"),

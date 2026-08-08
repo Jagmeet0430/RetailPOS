@@ -4,6 +4,9 @@ from app.api.routes.auth import router as auth_router
 from app.api.routes.barcodes import router as barcodes_router
 from app.api.routes.categories import router as categories_router
 from app.api.routes.customers import router as customers_router
+from app.api.routes.inventory import (
+    router as inventory_router,
+)
 from app.api.routes.products import router as products_router
 from app.api.routes.stores import (
     router as stores_router,
@@ -42,6 +45,10 @@ api_router.include_router(
 
 api_router.include_router(
     customers_router
+)
+
+api_router.include_router(
+    inventory_router
 )
 
 api_router.include_router(
