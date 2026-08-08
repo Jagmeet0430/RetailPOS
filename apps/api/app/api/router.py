@@ -8,8 +8,14 @@ from app.api.routes.inventory import (
     router as inventory_router,
 )
 from app.api.routes.products import router as products_router
+from app.api.routes.purchases import (
+    router as purchases_router,
+)
 from app.api.routes.stores import (
     router as stores_router,
+)
+from app.api.routes.suppliers import (
+    router as suppliers_router,
 )
 from app.api.routes.taxes import router as taxes_router
 from app.api.routes.units import router as units_router
@@ -49,6 +55,14 @@ api_router.include_router(
 
 api_router.include_router(
     inventory_router
+)
+
+api_router.include_router(
+    suppliers_router
+)
+
+api_router.include_router(
+    purchases_router
 )
 
 api_router.include_router(
