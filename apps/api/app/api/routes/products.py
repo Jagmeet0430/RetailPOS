@@ -7,6 +7,10 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
+from app.api.dependencies import (
+    get_current_user,
+    require_permission,
+)
 from app.core.database import get_db
 from app.schemas.product import (
     ProductCreate,
@@ -32,6 +36,9 @@ router = APIRouter(
 def create_product(
     payload: ProductCreate,
     db: Session = Depends(get_db),
+    current_user=Depends(
+        require_permission("product.create")
+    ),
 ):
     return ProductService.create_product(
         db,
@@ -54,6 +61,9 @@ def list_products(
         le=200,
     ),
     db: Session = Depends(get_db),
+    current_user=Depends(
+        require_permission("product.view")
+    ),
 ):
     return ProductService.list_products(
         db,
@@ -69,6 +79,9 @@ def list_products(
 def get_product(
     product_id: UUID,
     db: Session = Depends(get_db),
+    current_user=Depends(
+        require_permission("product.view")
+    ),
 ):
     return ProductService.get_product(
         db,
@@ -84,6 +97,9 @@ def update_product(
     product_id: UUID,
     payload: ProductUpdate,
     db: Session = Depends(get_db),
+    current_user=Depends(
+        require_permission("product.update")
+    ),
 ):
     return ProductService.update_product(
         db,
@@ -99,6 +115,9 @@ def update_product(
 def deactivate_product(
     product_id: UUID,
     db: Session = Depends(get_db),
+    current_user=Depends(
+        require_permission("product.delete")
+    ),
 ):
     return ProductService.deactivate_product(
         db,

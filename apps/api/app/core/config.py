@@ -3,8 +3,8 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-BASE_DIR = Path(__file__).resolve().parents[2]
-ENV_FILE = BASE_DIR / ".env"
+ROOT_DIR = Path(__file__).resolve().parents[4]
+ENV_FILE = ROOT_DIR / ".env"
 
 
 class Settings(BaseSettings):
@@ -13,9 +13,12 @@ class Settings(BaseSettings):
     APP_DEBUG: bool = True
 
     DATABASE_URL: str
+    JWT_SECRET_KEY: str
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     model_config = SettingsConfigDict(
-        env_file=ENV_FILE,
+        env_file="../../.env",
         env_file_encoding="utf-8",
         extra="ignore",
     )
