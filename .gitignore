@@ -1,11 +1,18 @@
 # Dependencies
 node_modules/
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+**pycache**/
+*.pyc
 
 # Build outputs
 dist/
 build/
 out/
 coverage/
+.pytest_cache/
 
 # Environment files
 .env
